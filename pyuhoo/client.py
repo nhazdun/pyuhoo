@@ -96,6 +96,7 @@ class Client(object):
             await self.login()
 
     async def get_latest_data(self) -> None:
+        await self.login()
         try:
             data_latest: dict = await self._api.data_latest()
         except UnauthorizedError:
